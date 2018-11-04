@@ -1,0 +1,45 @@
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
+.top-title{
+  margin: 0px;
+  padding: 150px;
+  background-color: #000000;
+  color: #FFFFFF;
+  border-radius: 0px !important;
+}
+
+.form-control{
+  margin-bottom: 20px;
+}
+
+.container-fluid{
+  margin: 0px;
+  padding: 0px;
+}
+
+.flat{
+  border-radius: 0;
+}
+
+.glyphicon{
+  cursor: pointer;
+}
+
+.ok{
+  color: #37A000;
+}
+
+.yes{
+  color: rgb(52, 101, 236);
+}
+
+textarea {
+  resize: none;
+}
+
+.backgroung-ok{
+  background-color: #37A000;
+}

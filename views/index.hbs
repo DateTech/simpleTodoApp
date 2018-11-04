@@ -1,0 +1,70 @@
+<div class="container-fluid">
+    <div class="jumbotron top-title text-center" style="margin-bottom:50px">
+        <h2>{{title}}</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4" style="margin-bottom:50px">
+                <form role="form" id="fromAdd" autocomplete="off">
+                    <div class="for-group row">
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control flat" placeholder="Todo Title" name="txtTodoTitle" id="txtTodo" required/>
+                        </div>
+                        <div class="col-sm-12">
+                            <textarea id="txtTodo" name="txtTodo" class="form-control flat" rows="5" placeholder="Content" required></textarea>
+                        </div>
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-primary btn-block flat"><span>ADD</span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-8">
+                <div class="panel panel-default flat">
+                    <div class="panel-body">
+                        <table class="table table-default flat">
+                            <thead>
+                                <tr>
+                                    <td>Date</td>
+                                    <td>Todo</td>
+                                    <td>Action</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#if results}}
+                                    {{#each results}}
+                                        <tr>
+                                            <td>{{activity_date}}</td>
+                                            <td>{{activity_title}}</td>
+                                            <td>
+                                                <span class="selectTodo" data-toggle="modal" data-target="#myModal" data-id="{{activity_id}}">
+                                                    <span class="glyphicon glyphicon-eye-open yes" data-toggle="tooltip"  data-placement="bottom" title="View"></span>
+                                                </span>
+                                                <span class="glyphicon glyphicon-ok ok" data-toggle="tooltip"  data-placement="bottom" title="Done"></span>
+                                            </td>
+                                        </tr>
+                                    {{/each}}
+                                {{/if}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- View Modal -->
+<div class="modal fade flat" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content flat">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <p id="modal-paragraph"></p>
+            </div>
+        </div>
+    </div>
+</div>

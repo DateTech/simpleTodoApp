@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    {{{body}}}
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    //add date
+    $('#fromAdd').on("submit", function(e){
+      e.preventDefault();
+
+      $.ajax({
+        type: "POST",
+        url: "/add",
+        data: $(this).serialize(),
+        success: function(data){
+          
+        },
+        error: function(data){
+          console.log("failed");
+        }
+      });
+    });
+
+    //view data
+    $('.selectTodo').on("click", function(){
+      var id = $(this).data('id');
+      var infoModal = $('#myModal');
+      console.log(id);
+      $.ajax({
+        type: "GET",
+        url: "/view/"+id,
+        dataType: "json",
+        success: function(data){
+          infoModal.find('#modal-title').text(data[0].activity_title);
+          infoModal.find('#modal-paragraph').text(data[0].activity_text);
+          infoModal.modal();
+        },
+        error: function(data){
+          console.log(data);
+        }
+      });
+    });
+
+    //initiate tootip
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
+</html>
